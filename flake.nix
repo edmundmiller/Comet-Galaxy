@@ -9,6 +9,7 @@
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [ ciao ];
           shellHook = ''
+            export PATH="/home/emiller/.ciao/build/bin:$PATH"
           '';
         };
       });
