@@ -22,11 +22,10 @@ pribnowbox(P) :-
 	L1 .=. 6,
 	similar(P, ['t','a','t','a','a','t']).
 
-promoter(G) :-
-	tss(S), subsequence(S,G,IndexS),
-	prefix_match(['a','t','g'],S),
-	subsequence(P, G, IndexP),tatabox(P),
-	IndexS - IndexP .=. 25,
+promoter(G, IndexStartSite, IndexTata, -1) :-
+    	tss(G, S, IndexStartSite), 
+	subsequence(P, G, IndexTata),tatabox(P),
+	IndexStartSite - IndexTata .=. 25,
 	eukaryote(G).
 
 tatabox(P) :- similar(P, ['t','a','t','a','a','a','a']).
