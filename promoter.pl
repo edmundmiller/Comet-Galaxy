@@ -36,6 +36,17 @@ tatabox(P) :- similar(P, ['t','a','t','a','a','a','t']).
 tatabox(P) :- similar(P, ['t','a','t','a','t','a','a']).
 tatabox(P) :- similar(P, ['t','a','t','a','t','a','t']).
 
+% Generate all O(N^2) sublists of the input list
+generate_sublists([Head | Tail], Result) :-
+	generate_prefixlists([Head | Tail], Result).
+generate_sublists([_ | Tail], Result) :-
+	generate_sublists(Tail, Result).
+
+% Generate prefixes of the given list
+generate_prefixlists([Head | _], [Head | []]).
+generate_prefixlists([Head | Tail], [Head | Result]) :-
+	generate_prefixlists(Tail, Result).	
+
 list_length( []     , L , L ) .
 list_length( [_|Xs] , T , L ) :-
   T1 is T+1 ,
@@ -73,3 +84,5 @@ subsequence(Pattern, [_ | Tail], Index) :-
 % ?- sequence(DNA), promoter(DNA).
 
 % ?- similar([a, b, d, e], [a, b, d, e]).
+
+% ?- generate_sublists([a, b, c, d], X).
