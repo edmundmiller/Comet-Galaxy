@@ -42,7 +42,7 @@ list_length( [_|Xs] , T , L ) :-
   list_length(Xs,T1,L).
 
 % have the same base pair in at least 4 positions
-similar(X, C) :- .
+% similar(X, C) :- .
 
 prefix_match([], _).
 prefix_match([H | T1], [H | T2]) :- prefix_match(T1, T2).
