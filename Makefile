@@ -1,5 +1,5 @@
-promoter: input
+promoter: list_input.pl
 	scasp promoter.pl
 
-input:
+list_input.pl:
 	python data_to_list.py raw_input2.txt
