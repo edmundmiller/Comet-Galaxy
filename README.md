@@ -4,7 +4,7 @@
 
 Genome Analyzer is a s(CASP) program that searches for regions of transcription in a DNA sequence.
 
-DNA sequences can be modeled as a string of characters 'A', T', 'C', and 'G'. Broadly speaking, a transcription region consists of a translation section, which is prefixed by a start codon (usually ATG) and suffixed by a stop codon (varies). Upstream of the translation section, there is typically one or more AT-rich sequences which aid in transcription.
+DNA sequences can be modeled as a string of characters consisting of 'A', T', 'C', and 'G'. Broadly speaking, a transcription region consists of a translation section, which is prefixed by a start codon (usually ATG) and suffixed by a stop codon (varies). Upstream of the translation section, there is typically one or more AT-rich sequences which aid in transcription.
 
 Depicted below is a model transcription region where the character 'X' represents a wildcard and 'Y' represents the payload. In this example, there are two AT-rich sequences: one (the Pribnow box) appearing 10 characters before the translation section and another appearing 35 characters before the translation section. This structure is typical for bacteria.
 
