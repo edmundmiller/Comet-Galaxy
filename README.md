@@ -2,7 +2,7 @@
 
 ## Overview
 
-Genome Analyzer is a s(CASP) program that searches for regions of transcription in a DNA sequence.
+Genome Analyzer is a s(CASP) program that searches for promoters, which identify regions of transcription, in a DNA sequence.
 
 DNA sequences can be modeled as a string of characters consisting of 'A', T', 'C', and 'G'. Broadly speaking, a transcription region consists of a translation section, which is prefixed by a start codon (usually ATG) and suffixed by a stop codon (varies). Upstream of the translation section, there is typically one or more AT-rich sequences which aid in transcription.
 
@@ -32,3 +32,7 @@ scasp promoter.pl
 ## Output
 
 ![Example output](/image/sample.png)
+
+## Design
+
+The s(CASP) program is an implementation of rules for identifying promoters in DNA sequences. Our team first compiled these rules in common English as seen in [this document](https://docs.google.com/document/d/153i7ato675mp_b7ePRx1TM4wlDa5qI-FfYx4xTki2Gs/edit?usp=sharing). These English rules were then converted to s(CASP) code.
