@@ -39,6 +39,18 @@ python data_to_list.py raw_input2.txt
 scasp promoter.pl
 ```
 
+### FASTA
+
+An example file can be downloaded from
+<https://github.com/nf-core/modules/raw/master/tests/data/fasta/E_coli/NC_010473.fa>
+and run the following instead.
+
+```
+python data_to_list.py NC_010473.fa
+```
+
+However, this is extremely slow because it is now optimized.
+
 ## Output
 
 ![Example output](/image/sample.png)
