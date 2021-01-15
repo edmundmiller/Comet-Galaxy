@@ -1,3 +1,5 @@
+#include ('list_input.pl').
+
 % need new rules
 bacteria(_).
 eukaryote(_).
