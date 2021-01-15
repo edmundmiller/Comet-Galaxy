@@ -29,10 +29,10 @@ promoter(G) :-
 	IndexS - IndexP .=. 25,
 	eukaryote(G)
 
-tatabox(P) :- P .=. similar(P, ['t','a','t','a','a','a','a']).
-tatabox(P) :- P .=. similar(P, ['t','a','t','a','a','a','t']).
-tatabox(P) :- P .=. similar(P, ['t','a','t','a','t','a','a']).
-tatabox(P) :- P .=. similar(P, ['t','a','t','a','t','a','t']).
+tatabox(P) :- similar(P, ['t','a','t','a','a','a','a']).
+tatabox(P) :- similar(P, ['t','a','t','a','a','a','t']).
+tatabox(P) :- similar(P, ['t','a','t','a','t','a','a']).
+tatabox(P) :- similar(P, ['t','a','t','a','t','a','t']).
 
 list_length( []     , L , L ) .
 list_length( [_|Xs] , T , L ) :-
