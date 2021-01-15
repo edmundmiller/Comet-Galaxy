@@ -42,7 +42,19 @@ list_length( [_|Xs] , T , L ) :-
   list_length(Xs,T1,L).
 
 % have the same base pair in at least 4 positions
-% similar(X, C) :- .
+similar(X, C) :- 
+	num_match(X, C, NumMatches),
+	NumMatches >= 4.
+
+% Returns the number of positions in the two lists that match
+num_match(_, [], 0).
+num_match([], _, 0).
+num_match([Head | Tail1], [Head | Tail2], Result) :-
+	num_match(Tail1, Tail2, Result2),
+	Result is Result2 + 1.
+num_match([Head1 | Tail1], [Head2 | Tail2], Result) :-
+	Head1 \= Head2,
+	num_match(Tail1, Tail2, Result).
 
 prefix_match([], _).
 prefix_match([H | T1], [H | T2]) :- prefix_match(T1, T2).
@@ -59,3 +71,5 @@ subsequence(Pattern, [_ | Tail], Index) :-
 % ?- subsequence([a, b], [b, c, a, d, e], I).
 
 % ?- sequence(DNA), promoter(DNA).
+
+% ?- similar([a, b, d, e], [a, b, d, e]).
