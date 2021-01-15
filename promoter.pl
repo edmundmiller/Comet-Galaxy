@@ -55,6 +55,7 @@ subsequence(Pattern, [_ | Tail], Index) :-
 % ?- prefix_match([a, b, c], [a, b, c, d, e]).
 % ?- prefix_match([a, e, c], [a, b, c, d, e]).
 
-?- subsequence([a, b], [b, c, a, b, e, a, b], I).
+% ?- subsequence([a, b], [b, c, a, b, e, a, b], I).
 % ?- subsequence([a, b], [b, c, a, d, e], I).
 
+?- sequence(DNA), promoter(DNA).
