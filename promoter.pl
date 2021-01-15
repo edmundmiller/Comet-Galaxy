@@ -29,7 +29,7 @@ promoter(G) :-
 	prefix_match(['a','t','g'],S),
 	subsequence(P, G, IndexP),tatabox(P),
 	IndexS - IndexP .=. 25,
-	eukaryote(G)
+	eukaryote(G).
 
 tatabox(P) :- similar(P, ['t','a','t','a','a','a','a']).
 tatabox(P) :- similar(P, ['t','a','t','a','a','a','t']).
@@ -58,4 +58,4 @@ subsequence(Pattern, [_ | Tail], Index) :-
 % ?- subsequence([a, b], [b, c, a, b, e, a, b], I).
 % ?- subsequence([a, b], [b, c, a, d, e], I).
 
-?- sequence(DNA), promoter(DNA).
+% ?- sequence(DNA), promoter(DNA).
