@@ -6,6 +6,11 @@ args = parser.parse_args()
 file_name = args.fileName[0]
 
 with open(file_name, "r") as in_file:
+    while True:
+        line = in_file.readline()
+        if not line.startswith(">"):
+            break
+
     in_str = in_file.read()
     in_str = in_str.lower()
     in_str = in_str.replace("\n", "")
