@@ -5,11 +5,11 @@ bacteria(_).
 eukaryote(_).
 
 promoter(G) :-
-    % tss - transcription start site
-    tss(S), subsequence(S,G,IndexS),
+    	% tss - transcription start site
+    	tss(G, S), subsequence(S,G,IndexS),
 	prefix_match(['a','t','g'],S),
 	subsequence(P, G, IndexP),pribnowbox(P),
-    % P appears approximately 10 nucleotides before S
+    	% P appears approximately 10 nucleotides before S
 	IndexS - IndexP .=. 10,
 	subsequence(X, G, IndexX),
 	% and X is similar to the consensus sequence “TTGACA”
@@ -124,3 +124,5 @@ subsequence_ignore0(Pattern, Sequence) :-
 % ?- tts(['a', 't', 'g', 't', 'a', 'g'], X).
 % ?- tts(['a', 't', 'g', 'c', 'c', 't', 'a', 'a', 't', 'a', 'g'], X). 
 % ?- tts(['a', 't', 'c', 'c', 't', 'a', 'a', 't', 'a', 'g'], X). 
+
+?- sequence(X).
