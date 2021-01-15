@@ -12,6 +12,13 @@ Depicted below is a model transcription region where the character 'X' represent
 
 The AT-rich sequences rarely appear exactly as shown in the model. In fact, the model shows the most likely character for each position, but in reality each position is based on an observed probability distribution.
 
+## Quick Start
+
+``` sh
+git clone https://github.com/Emiller88/Comet-Galaxy.git
+make
+```
+
 ## Usage
 
 1. Clone the git repository to your local machine.
