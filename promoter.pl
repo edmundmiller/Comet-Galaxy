@@ -4,18 +4,17 @@
 bacteria(_).
 eukaryote(_).
 
-promoter(G) :-
+promoter(G, IndexStartSite, IndexPribnow, IndexSecond) :-
     	% tss - transcription start site
-    	tss(G, S), subsequence(S,G,IndexS),
-	prefix_match(['a','t','g'],S),
-	subsequence(P, G, IndexP),pribnowbox(P),
+    	tss(G, S, IndexStartSite), 
+	subsequence(P, G, IndexPribnow),pribnowbox(P),
     	% P appears approximately 10 nucleotides before S
-	IndexS - IndexP .=. 10,
-	subsequence(X, G, IndexX),
+	IndexStartSite - IndexPribnow .=. 10,
+	subsequence(X, G, IndexSecond),
 	% and X is similar to the consensus sequence “TTGACA”
 	similar(X, ['t','t','g','a','c','a']),
 	% and X appears approximately 35 nucleotides before S
-	IndexS - IndexX .=. 35,
+	IndexStartSite - IndexSecond .=. 35,
 	bacteria(G).
 
 pribnowbox(P) :- 
@@ -44,10 +43,11 @@ reversed_stop_codon(P) :-
 	reverse_list(Q, P).
 
 % Generate all O(N^2) sublists of the input list
-generate_sublists([Head | Tail], Result) :-
+generate_sublists([Head | Tail], Result, 0) :-
 	generate_prefixlists([Head | Tail], Result).
-generate_sublists([_ | Tail], Result) :-
-	generate_sublists(Tail, Result).
+generate_sublists([_ | Tail], Result, Index) :-
+	generate_sublists(Tail, Result, Index2),
+	Index is Index2 + 1.
 
 % Generate prefixes of the given list
 generate_prefixlists([Head | _], [Head | []]).
@@ -57,10 +57,9 @@ generate_prefixlists([Head | Tail], [Head | Result]) :-
 % Finds all transcription sections in the Genome.
 % Transcription sections should start with a start codon and end with a stop codon.
 % However, there should not be any stop codons in the 'body' of the section.
-tts(Genome, Candidate) :-
-	generate_sublists(Genome, Candidate),
+tss(Genome, Candidate, Index) :-
+	generate_sublists(Genome, Candidate, Index),
 	reverse_list(Candidate, ReverseCandidate),
-	reversed_stop_codon(Stop1),
 	prefix_match(['a', 't', 'g'], Candidate),
 	reversed_stop_codon(Stop2),
 	prefix_match(Stop2, ReverseCandidate).
@@ -125,4 +124,5 @@ subsequence_ignore0(Pattern, Sequence) :-
 % ?- tts(['a', 't', 'g', 'c', 'c', 't', 'a', 'a', 't', 'a', 'g'], X). 
 % ?- tts(['a', 't', 'c', 'c', 't', 'a', 'a', 't', 'a', 'g'], X). 
 
-?- sequence(X).
+% ?- sequence(X), tss(X, S).
+?- sequence(X), promoter(X, A, B, C).
