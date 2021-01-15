@@ -1,8 +1,8 @@
-# Genome Analyzer
+# Automated Genome Feature Discovery
 
 ## Overview
 
-Genome Analyzer is a s(CASP) program that searches for promoters, which identify regions of transcription, in a DNA sequence.
+Automated Genome Feature Discovery is a s(CASP) program that searches for promoters, which identify regions of transcription, in a DNA sequence.
 
 DNA sequences can be modeled as a string of characters consisting of 'A', T', 'C', and 'G'. Broadly speaking, a transcription region consists of a translation section, which is prefixed by a start codon (usually ATG) and suffixed by a stop codon (varies). Upstream of the translation section, there is typically one or more AT-rich sequences which aid in transcription.
 
