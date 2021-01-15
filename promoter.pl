@@ -1,8 +1,8 @@
 #include ('list_input.pl').
 
 % need new rules
-bacteria(_).
-eukaryote(_).
+prokaryote(G) :- not eukaryote(G).
+eukaryote(G) :- not prokaryote(G).
 
 promoter(G, IndexStartSite, IndexPribnow, IndexSecond) :-
     	% tss - transcription start site
@@ -15,7 +15,7 @@ promoter(G, IndexStartSite, IndexPribnow, IndexSecond) :-
 	similar(X, ['t','t','g','a','c','a']),
 	% and X appears approximately 35 nucleotides before S
 	IndexStartSite - IndexSecond .=. 35,
-	bacteria(G).
+	prokaryote(G).
 
 pribnowbox(P) :- 
 	list_length(P, 0, L1),
