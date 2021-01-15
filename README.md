@@ -33,7 +33,7 @@ git clone https://github.com/Emiller88/Comet-Galaxy.git
 python data_to_list.py raw_input2.txt
 ```
 
-3. Run the analyzer!
+3. Run the program!
 
 ```
 scasp promoter.pl
